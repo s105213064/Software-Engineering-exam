@@ -11,6 +11,6 @@ $kind = $_POST['kind'];
 $sql = "insert into `exam` (`name`, `sid`, `f-name`, `m-name`, `kind`) values ('$name', '$sid', '$fname', '$mname', '$kind')";
 mysqli_query($conn, $sql) or die("Insert failed, SQL query error"); //執行SQL	
 
-header("Location: todoListView.php");
+header("Location: MVC/todoListView.php");
 ?>
 
