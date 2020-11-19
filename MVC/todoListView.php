@@ -61,28 +61,23 @@ while ($rs=mysqli_fetch_assoc($result)) {
   }
   echo "</td>";
   echo "<td>" , $rs['s-comment'] , "</td>";
-<<<<<<< HEAD
-  echo "<td>" , $rs['s-signature'] , "</td>";
-  echo "<td>" , $rs['p-signature'] ;
-  if ($bossMode == 1) {
-    echo "<a href='pForm.php?id={$rs['ID']}'>edit</a>";
-  }
-  echo"</td></tr>";
-=======
   echo "<td>" , $rs['s-signature'];
   if ($bossMode == 3) {
     echo "<a href='sForm.php?id={$rs['ID']}'>edit</a>";
   }
   echo "</td>";
-<<<<<<< HEAD
-  echo "<td>" , $rs['p-signature'] , "</td></tr>";
-=======
-  echo "<td>" , $rs['p-signature'] , "</td>";
->>>>>>> 9e9ee16daed76a24f19d2e5da0e78a9c2476c696
->>>>>>> 5917ada07a1a24bb1c4b7798c5d6a218bea611f1
+  echo "<td>" , $rs['p-signature'] ;
+  if ($bossMode == 1) {
+    echo "<a href='pForm.php?id={$rs['ID']}'>edit</a>";
+  }
+  echo "</td></tr>";
 }
 ?>
 </table>
-<a href="../applyform.php">Add Task</a> 
+<?php
+if ($bossMode == 0) {
+  echo '<a href="../applyform.php">Add Task</a>';
+}
+?>
 </body>
 </html>
