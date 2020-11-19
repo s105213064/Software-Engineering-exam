@@ -66,7 +66,7 @@ while ($rs=mysqli_fetch_assoc($result)) {
     echo "<a href='sForm.php?id={$rs['ID']}'>edit</a>";
   }
   echo "</td>";
-  echo "<td>" , $rs['p-signature'] , "</td>";
+  echo "<td>" , $rs['p-signature'] , "</td></tr>";
 }
 ?>
 </table>
