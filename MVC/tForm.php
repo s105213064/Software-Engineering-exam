@@ -27,8 +27,8 @@ if (! $rs) {
 
     teacher signature:
     <select name="sign" type="select" id="sign" >
-        <option value='0'>OK</option>
-        <option value='1'>NOT OK</option>
+        <option value='1'>OK</option>
+        <option value='0'>NOT OK</option>
     </select><br>
       <input type="submit" name="Submit" value="送出" />
 	</form>
