@@ -5,17 +5,22 @@ if (! isset($_SESSION['uID']) or $_SESSION['uID']<="") {
 } 
 if ($_SESSION['uID']=='sudo'){
 	$bossMode = 1;
+} else if ($_SESSION['uID']=='teach') {
+    $bossMode = 2;
+} else if ($_SESSION['uID']=='sec') {
+    $bossMode = 3;
 } else {
 	$bossMode=0;
 }
 $n = $_SESSION['uID'];
 require_once("dbconnect.php");
-if ($bossMode == 1)
-    $sql = "select * from exam where 1;";
+if ($bossMode == 0)
+    $sql = "select * from exam where name='$n';";
 else
-    $sql = "select * from exam where name=$n;";
+    $sql = "select * from exam where 1;";
 $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -50,13 +55,21 @@ while ($rs=mysqli_fetch_assoc($result)) {
   echo "<td>" , $rs['m-name'] , "</td>";
   echo "<td>", $rs['kind'], "</td>";
   echo "<td>" , $rs['t-comment'] , "</td>";
-  echo "<td>" , $rs['t-signature'] , "</td>";
+  echo "<td>" , $rs['t-signature'];
+  if ($bossMode == 2) {
+      echo "<a href='tForm.php?id={$rs['ID']}'>edit</a>";
+  }
+  echo "</td>";
   echo "<td>" , $rs['s-comment'] , "</td>";
   echo "<td>" , $rs['s-signature'] , "</td>";
   echo "<td>" , $rs['p-signature'] , "</td>";
 }
 ?>
 </table>
+<<<<<<< HEAD
 <a href="addForm.php">Add Application</a> 
+=======
+<a href="../applyform.php">Add Task</a> 
+>>>>>>> 69be1b4c72afb263051850f20143abff8d7806c7
 </body>
 </html>
