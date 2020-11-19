@@ -66,10 +66,6 @@ while ($rs=mysqli_fetch_assoc($result)) {
 }
 ?>
 </table>
-<<<<<<< HEAD
-<a href="addForm.php">Add Application</a> 
-=======
 <a href="../applyform.php">Add Task</a> 
->>>>>>> 69be1b4c72afb263051850f20143abff8d7806c7
 </body>
 </html>
