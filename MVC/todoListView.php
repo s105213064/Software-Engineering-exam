@@ -8,8 +8,12 @@ if ($_SESSION['uID']=='sudo'){
 } else {
 	$bossMode=0;
 }
-
-$sql = "select * from exam where 1;";
+$n = $_SESSION['uID'];
+require_once("dbconnect.php");
+if ($bossMode == 1)
+    $sql = "select * from exam where 1;";
+else
+    $sql = "select * from exam where name=$n;";
 $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -53,7 +57,6 @@ while ($rs=mysqli_fetch_assoc($result)) {
 }
 ?>
 </table>
-<a href="todoAddForm.php">Add Task</a> 
-<br><a href="todoComplete.php">Complete Task</a>
+<a href="addForm.php">Add Task</a> 
 </body>
 </html>
