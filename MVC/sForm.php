@@ -19,17 +19,18 @@ if (! $rs) {
 </head>
 <body>
 <h1>Edit Task</h1>
-<form method="post" action="todoUpdate.php">
+<form method="post" action="todoUpdateSec.php">
 
-	<input type='hidden' name='id' value='<?php echo $id ?>'>
+	  <input type='hidden' name='id' value='<?php echo $id ?>'>
 
-    teacher comment: <input name="comment" type="text" id="comment" value="<?php echo htmlspecialchars($rs['t-comment']);?>" /> <br>
+      secretary comment: <input name="comment" type="text" id="comment" value="<?php echo htmlspecialchars($rs['s-comment']);?>" /> <br>
 
-    teacher signature:
+      secretary signature: 
     <select name="sign" type="select" id="sign" >
         <option value='0'>OK</option>
         <option value='1'>NOT OK</option>
     </select><br>
+
       <input type="submit" name="Submit" value="送出" />
 	</form>
   </tr>

@@ -61,7 +61,11 @@ while ($rs=mysqli_fetch_assoc($result)) {
   }
   echo "</td>";
   echo "<td>" , $rs['s-comment'] , "</td>";
-  echo "<td>" , $rs['s-signature'] , "</td>";
+  echo "<td>" , $rs['s-signature'];
+  if ($bossMode == 3) {
+    echo "<a href='sForm.php?id={$rs['ID']}'>edit</a>";
+  }
+  echo "</td>";
   echo "<td>" , $rs['p-signature'] , "</td>";
 }
 ?>
