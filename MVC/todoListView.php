@@ -57,6 +57,6 @@ while ($rs=mysqli_fetch_assoc($result)) {
 }
 ?>
 </table>
-<a href="addForm.php">Add Task</a> 
+<a href="addForm.php">Add Application</a> 
 </body>
 </html>
