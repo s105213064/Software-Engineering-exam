@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
--- 主機： localhost
--- 產生時間： 2020 年 11 月 19 日 06:38
--- 伺服器版本： 10.3.15-MariaDB
--- PHP 版本： 7.2.19
+-- 主機： 127.0.0.1
+-- 產生時間： 2020-11-20 10:02:05
+-- 伺服器版本： 10.4.14-MariaDB
+-- PHP 版本： 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -47,7 +46,9 @@ CREATE TABLE `exam` (
 --
 
 INSERT INTO `exam` (`ID`, `name`, `sid`, `f-name`, `m-name`, `kind`, `t-comment`, `t-signature`, `s-comment`, `s-signature`, `p-signature`) VALUES
-(1, 'test', 123, 'test', 'test', 1, 'test', 1, 'test', 1, 1);
+(1, 'test', 123, 'test', 'test', 1, '559222', 1, 'test', 1, 1),
+(5, 'user1', 2147483647, '你父親', '你母', 2, '555555577777', 0, 'hello~', 0, 1),
+(6, 'user', 12341234, '我不知道', '可能是吧', 1, '', 0, 'qweqwe', 1, 0);
 
 --
 -- 已傾印資料表的索引
@@ -67,7 +68,7 @@ ALTER TABLE `exam`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `exam`
 --
 ALTER TABLE `exam`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
