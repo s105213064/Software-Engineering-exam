@@ -6,8 +6,8 @@ $sql = "select * from exam where id = $id;";
 $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
 $rs=mysqli_fetch_assoc($result);
 if (! $rs) {
-	echo "no data found";
-	exit(0);
+  echo "no data found";
+  exit(0);
 }
 ?>
 
@@ -21,17 +21,15 @@ if (! $rs) {
 <h1>Edit Task</h1>
 <form method="post" action="ptodoUpdate.php">
 
-	  <input type='hidden' name='id' value='<?php echo $id ?>'>
+  <input type='hidden' name='id' value='<?php echo $id ?>'>
 
-      p signature: <select  name="psignature" type="select" id="psignature" > 
-				
-        <option value='1'>OK</option>
-        <option value='0'>NOT OK</option>
-        </select>
+  p signature: 
+  <select  name="psignature" type="select" id="psignature" >
+    <option value='1'>OK</option>
+    <option value='0'>NOT OK</option>
+  </select>
 
-      <input type="submit" name="Submit" value="送出" />
-	</form>
-  </tr>
-</table>
+  <input type="submit" name="Submit" value="送出" />
+</form>
 </body>
 </html>
