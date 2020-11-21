@@ -1,4 +1,5 @@
 <?php
+session_start();
 require("dbconnect.php");
 ?>
 
@@ -12,24 +13,24 @@ require("dbconnect.php");
 <h1>Application Form</h1>
 <form method="post" action="applyControl.php">
 
-      Name: <input name="name" type="text" id="name" value="你的名字" /> <br>
+    Name: <?php echo $_SESSION['uID'] ?><input name="name" type="hidden" id="name" value="<?php echo $_SESSION['uID'] ?>" /> <br>
 
-      Student ID: <input name="sid" type="text" id="sid" value="你的學浩" /> <br>
+    Student ID: <input name="sid" type="text" id="sid" value="你的學號" /> <br>
 
-	  Father Name: <input name="fname" type="text" id="fname" value="你父親的名字" /> <br>
+    Father Name: <input name="fname" type="text" id="fname" value="你父親的名字" /> <br>
 
-	  Mother Name: <input name="mname" type="text" id="mname" value="你母親的名字" /> <br>
+    Mother Name: <input name="mname" type="text" id="mname" value="你母親的名字" /> <br>
 
-	  Family Background: <select  name="kind" type="select" id="kind" > 
-				
-					<option value='1'>低收入戶</option>
-					<option value='2'>中低收入戶</option>
-					<option value='3'>家庭突發因素</option>
-					</select>
-	  <br>
+    Family Background: 
+    <select name="kind" type="select" id="kind" > 
+        <option value='低收入戶'>低收入戶</option>
+        <option value='中低收入戶'>中低收入戶</option>
+        <option value='家庭突發因素'>家庭突發因素</option>
+    </select>
+    <br>
 
       <input type="submit" name="Submit" value="送出" />
-	</form>
+    </form>
   </tr>
 </table>
 </body>

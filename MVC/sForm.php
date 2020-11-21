@@ -6,8 +6,8 @@ $sql = "select * from exam where id = $id;";
 $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
 $rs=mysqli_fetch_assoc($result);
 if (! $rs) {
-	echo "no data found";
-	exit(0);
+  echo "no data found";
+  exit(0);
 }
 ?>
 
@@ -19,21 +19,18 @@ if (! $rs) {
 </head>
 <body>
 <h1>Edit Task</h1>
-<form method="post" action="todoUpdateSec.php">
+  <form method="post" action="todoUpdateSec.php">
+    <input type='hidden' name='id' value='<?php echo $id ?>'>
 
-	  <input type='hidden' name='id' value='<?php echo $id ?>'>
+    secretary comment: <input name="comment" type="text" id="comment" value="<?php echo htmlspecialchars($rs['s-comment']);?>" /> <br>
 
-      secretary comment: <input name="comment" type="text" id="comment" value="<?php echo htmlspecialchars($rs['s-comment']);?>" /> <br>
-
-      secretary signature: 
+    secretary signature: 
     <select name="sign" type="select" id="sign" >
-        <option value='1'>OK</option>
-        <option value='0'>NOT OK</option>
+      <option value='1'>OK</option>
+      <option value='0'>NOT OK</option>
     </select><br>
 
-      <input type="submit" name="Submit" value="送出" />
+    <input type="submit" name="Submit" value="送出" />
 	</form>
-  </tr>
-</table>
 </body>
 </html>

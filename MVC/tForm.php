@@ -18,10 +18,10 @@ if (! $rs) {
 <title>無標題文件</title>
 </head>
 <body>
-<h1>Edit Task</h1>
-<form method="post" action="todoUpdate.php">
+  <h1>Edit Status</h1>
+  <form method="post" action="todoUpdate.php">
 
-	<input type='hidden' name='id' value='<?php echo $id ?>'>
+    <input type='hidden' name='id' value='<?php echo $id ?>'>
 
     teacher comment: <input name="comment" type="text" id="comment" value="<?php echo htmlspecialchars($rs['t-comment']);?>" /> <br>
 
@@ -31,8 +31,6 @@ if (! $rs) {
         <option value='0'>NOT OK</option>
     </select><br>
       <input type="submit" name="Submit" value="送出" />
-	</form>
-  </tr>
-</table>
+  </form>
 </body>
 </html>
