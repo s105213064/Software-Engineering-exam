@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
--- 主機： localhost
--- 產生時間： 2020 年 11 月 22 日 12:21
--- 伺服器版本： 10.3.15-MariaDB
--- PHP 版本： 7.2.19
+-- 主機： 127.0.0.1
+-- 產生時間： 2020-11-21 19:18:23
+-- 伺服器版本： 10.4.14-MariaDB
+-- PHP 版本： 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -34,12 +33,12 @@ CREATE TABLE `exam` (
   `sid` int(20) NOT NULL,
   `f-name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `m-name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `kind` int(10) NOT NULL,
-  `t-comment` text CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `t-signature` int(10) DEFAULT 0,
-  `s-comment` text CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `s-signature` int(10) DEFAULT 0,
-  `p-signature` int(10) DEFAULT 0
+  `kind` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `t-comment` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `t-signature` int(10) NOT NULL,
+  `s-comment` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `s-signature` int(10) NOT NULL,
+  `p-signature` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -47,15 +46,9 @@ CREATE TABLE `exam` (
 --
 
 INSERT INTO `exam` (`ID`, `name`, `sid`, `f-name`, `m-name`, `kind`, `t-comment`, `t-signature`, `s-comment`, `s-signature`, `p-signature`) VALUES
-(1, 'Janne', 109213004, 'Amisha Gaines', 'Hammad Marshall', 1, NULL, 0, NULL, 0, 0),
-(2, 'Adam', 109213074, 'Kishan Britt', 'Jade Oakley', 1, NULL, 0, NULL, 0, 0),
-(3, 'Mimi', 105213014, 'Nabeel Allen', 'Michael Neville', 1, NULL, 0, NULL, 0, 0),
-(4, 'Tom', 107213002, 'Raphael Mccoy', 'Denzel Ewing', 3, NULL, 0, NULL, 0, 0),
-(5, 'Ray', 108213046, 'Georga Gunn', 'Kody Ferguson', 2, NULL, 0, NULL, 0, 0),
-(6, 'Zoe', 105213077, 'Hussain Mckee', 'Erin Davey', 2, NULL, 0, NULL, 0, 0),
-(7, 'Yati', 109213003, 'Roscoe Brandt', 'Arjun Kerr', 2, NULL, 0, NULL, 0, 0),
-(8, 'Obama', 109213012, 'Lyndsey Berger\r\n', 'Enoch Love', 3, NULL, 0, NULL, 0, 0),
-(9, 'Trump', 109213007, 'Sid Mata', 'Reggie Lopez', 3, NULL, 0, NULL, 0, 0);
+(10, 'user', 111111111, '父親1', '母親1', '低收入戶', '導師意見輸入測試\\/][-=/.~!`', 1, '秘書輸入測試12./,`]\\;.\'-+/*', 1, 1),
+(11, 'user1', 222222222, '父親2', '母親2', '中低收入戶', '這個人勉強算他OK', 1, '', 0, 0),
+(12, 'user2', 2147483647, 'daddy', 'mommy', '家庭突發因素', '', 0, '', 0, 0);
 
 --
 -- 已傾印資料表的索引
@@ -75,7 +68,7 @@ ALTER TABLE `exam`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `exam`
 --
 ALTER TABLE `exam`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
