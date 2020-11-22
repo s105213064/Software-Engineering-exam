@@ -56,23 +56,78 @@ $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
     echo "<td>".$rs['name']."</td>";
     echo "<td>" , $rs['sid'], "</td>";
     echo "<td>" , $rs['f-name'], "</td>";
-    echo "<td>" , $rs['m-name'] , "</td>";
-    echo "<td>", $rs['kind'], "</td>";
-    echo "<td>" , $rs['t-comment'] , "</td>";
-    echo "<td>" , $rs['t-signature'];
-    if ($bossMode == 1) {
-        echo "<a href='tForm.php?id={$rs['ID']}'>edit</a>";
+    echo "<td>" , $rs['m-name'], "</td>"; 
+
+        $kind = $rs['kind']; // 將顯示數字改為用文字方式顯示（顯示kind欄位）
+        switch($kind){
+            case '1':
+                echo "<td>" ,"低收入戶", "</td>";
+                break;
+            case '2':
+                echo "<td>" ,"中低收入戶", "</td>";
+                break;
+            case '3':
+                echo "<td>" ,"家庭突發因素", "</td>";
+                break;
+        }
+
+    echo "<td>" , $rs['t-comment'];
+    if ($bossMode == 1 && $rs['t-comment']!='') {
+        echo "<a href='editForm.php?id={$rs['ID']}&act=tcomment'>edit</a>";
+    }if($bossMode == 1 && $rs['t-comment']==''){
+        echo "<a href='editForm.php?id={$rs['ID']}&act=tcomment'>give some comment</a>";
+    }
+    echo "</td>";  
+    echo "<td>"; // 將顯示數字改為用文字方式顯示（顯示tsignature欄位）
+        $tsignature = $rs['t-signature']; 
+        if ($bossMode == 1 && $rs['t-signature']=='0') {
+            echo "<a href='actControl.php?id={$rs['ID']}&act=tsignatureok'>OK</a><br>";
+            echo "<a href='actControl.php?id={$rs['ID']}&act=tsignaturenotok'>Not Ok</a>";
+        }
+        switch($tsignature){
+            case '1':
+                echo "老師通過";
+            break;
+            case '2':
+                echo "老師不通過";
+            break;
+        }
+    echo "</td>";
+    echo "<td>" , $rs['s-comment'];
+    if ($bossMode == 2 && $rs['s-comment']!='') {
+        echo "<a href='editForm.php?id={$rs['ID']}&act=scomment'>edit</a>";
+    }if($bossMode == 2 && $rs['s-comment']==''){
+        echo "<a href='editForm.php?id={$rs['ID']}&act=scomment'>give some comment</a>";
+    }
+    echo "</td>";   
+    echo "<td>"; // 將顯示數字改為用文字方式顯示（顯示s-signature欄位）
+    $ssignature = $rs['s-signature']; 
+    if ($bossMode == 2 && $rs['s-signature']=='0') {
+        echo "<a href='actControl.php?id={$rs['ID']}&act=ssignatureok'>OK</a><br>";
+        echo "<a href='actControl.php?id={$rs['ID']}&act=ssignaturenotok'>Not Ok</a>";
+    }
+    switch($ssignature){
+        case '1':
+            echo "秘書通過";
+        break;
+        case '2':
+            echo "秘書不通過";
+        break;
     }
     echo "</td>";
-    echo "<td>" , $rs['s-comment'] , "</td>";
-    echo "<td>" , $rs['s-signature'];
-    if ($bossMode == 2 && $rs['t-signature'] == 1) {
-        echo "<a href='sForm.php?id={$rs['ID']}'>edit</a>";
+    echo "<td>"; // 將顯示數字改為用文字方式顯示（顯示s-signature欄位）
+    $psignature = $rs['p-signature']; 
+    if ($bossMode == 3 && $rs['p-signature']=='0') {
+        echo "<a href='actControl.php?id={$rs['ID']}&act=psignatureok'>OK</a><br>";
+        echo "<a href='actControl.php?id={$rs['ID']}&act=psignaturenotok'>Not Ok</a>";
     }
-    echo "</td>";
-    echo "<td>" , $rs['p-signature'] ;
-    if ($bossMode == 3 && $rs['t-signature'] == 1 && $rs['s-signature'] == 1) {
-        echo "<a href='pForm.php?id={$rs['ID']}'>edit</a>";
+    switch($psignature){
+        case '1':
+            echo "校長通過";
+        break;
+        case '2':
+            echo "校長不通過";
+        break;
     }
     echo "</td></tr>";
     }
