@@ -57,19 +57,19 @@ $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
     echo "<td>" , $rs['sid'], "</td>";
     echo "<td>" , $rs['f-name'], "</td>";
     echo "<td>" , $rs['m-name'], "</td>"; 
-
-        $kind = $rs['kind']; // 將顯示數字改為用文字方式顯示（顯示kind欄位）
-        switch($kind){
-            case '1':
-                echo "<td>" ,"低收入戶", "</td>";
-                break;
-            case '2':
-                echo "<td>" ,"中低收入戶", "</td>";
-                break;
-            case '3':
-                echo "<td>" ,"家庭突發因素", "</td>";
-                break;
-        }
+    echo "<td>" , $rs['kind'], "</td>"; 
+        // $kind = $rs['kind']; // 將顯示數字改為用文字方式顯示（顯示kind欄位）
+        // switch($kind){
+        //     case '1':
+        //         echo "<td>" ,"低收入戶", "</td>";
+        //         break;
+        //     case '2':
+        //         echo "<td>" ,"中低收入戶", "</td>";
+        //         break;
+        //     case '3':
+        //         echo "<td>" ,"家庭突發因素", "</td>";
+        //         break;
+        // }
 
     echo "<td>" , $rs['t-comment'];
     if ($bossMode == 1 && $rs['t-comment']!='') {
@@ -80,7 +80,7 @@ $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
     echo "</td>";  
     echo "<td>"; // 將顯示數字改為用文字方式顯示（顯示tsignature欄位）
         $tsignature = $rs['t-signature']; 
-        if ($bossMode == 1 && $rs['t-signature']=='0') {
+        if ($bossMode == 1) {
             echo "<a href='actControl.php?id={$rs['ID']}&act=tsignatureok'>OK</a><br>";
             echo "<a href='actControl.php?id={$rs['ID']}&act=tsignaturenotok'>Not Ok</a>";
         }
@@ -94,15 +94,17 @@ $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
         }
     echo "</td>";
     echo "<td>" , $rs['s-comment'];
-    if ($bossMode == 2 && $rs['s-comment']!='') {
-        echo "<a href='editForm.php?id={$rs['ID']}&act=scomment'>edit</a>";
-    }if($bossMode == 2 && $rs['s-comment']==''){
-        echo "<a href='editForm.php?id={$rs['ID']}&act=scomment'>give some comment</a>";
+    if ($rs['t-signature'] == 1) {
+        if ($bossMode == 2 && $rs['s-comment']!='') {
+            echo "<a href='editForm.php?id={$rs['ID']}&act=scomment'>edit</a>";
+        }if($bossMode == 2 && $rs['s-comment']==''){
+            echo "<a href='editForm.php?id={$rs['ID']}&act=scomment'>give some comment</a>";
+        }
     }
-    echo "</td>";   
+    echo "</td>";
     echo "<td>"; // 將顯示數字改為用文字方式顯示（顯示s-signature欄位）
     $ssignature = $rs['s-signature']; 
-    if ($bossMode == 2 && $rs['s-signature']=='0') {
+    if ($bossMode == 2 && $rs['t-signature'] == 1) {
         echo "<a href='actControl.php?id={$rs['ID']}&act=ssignatureok'>OK</a><br>";
         echo "<a href='actControl.php?id={$rs['ID']}&act=ssignaturenotok'>Not Ok</a>";
     }
@@ -117,7 +119,7 @@ $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
     echo "</td>";
     echo "<td>"; // 將顯示數字改為用文字方式顯示（顯示s-signature欄位）
     $psignature = $rs['p-signature']; 
-    if ($bossMode == 3 && $rs['p-signature']=='0') {
+    if ($bossMode == 3 && $rs['s-signature'] == 1) {
         echo "<a href='actControl.php?id={$rs['ID']}&act=psignatureok'>OK</a><br>";
         echo "<a href='actControl.php?id={$rs['ID']}&act=psignaturenotok'>Not Ok</a>";
     }
