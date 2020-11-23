@@ -46,9 +46,16 @@ CREATE TABLE `exam` (
 --
 
 INSERT INTO `exam` (`ID`, `name`, `sid`, `f-name`, `m-name`, `kind`, `t-comment`, `t-signature`, `s-comment`, `s-signature`, `p-signature`) VALUES
-(10, 'user', 111111111, '父親1', '母親1', '低收入戶', '導師意見輸入測試\\/][-=/.~!`', 1, '秘書輸入測試12./,`]\\;.\'-+/*', 1, 1),
-(11, 'user1', 222222222, '父親2', '母親2', '中低收入戶', '這個人勉強算他OK', 1, '', 0, 0),
-(12, 'user2', 2147483647, 'daddy', 'mommy', '家庭突發因素', '', 0, '', 0, 0);
+(1, 'Janne', 109213004, 'Amisha Gaines', 'Hammad Marshall', '低收入戶', NULL, 0, NULL, 0, 0),
+(2, 'Adam', 109213074, 'Kishan Britt', 'Jade Oakley', '低收入戶', NULL, 0, NULL, 0, 0),
+(3, 'Mimi', 105213014, 'Nabeel Allen', 'Michael Neville', '低收入戶', NULL, 0, NULL, 0, 0),
+(4, 'Tom', 107213002, 'Raphael Mccoy', 'Denzel Ewing', '家庭突發因素', NULL, 0, NULL, 0, 0),
+(5, 'Ray', 108213046, 'Georga Gunn', 'Kody Ferguson', '中低收入戶', NULL, 0, NULL, 0, 0),
+(6, 'Zoe', 105213077, 'Hussain Mckee', 'Erin Davey', '中低收入戶', NULL, 0, NULL, 0, 0),
+(7, 'Yati', 109213003, 'Roscoe Brandt', 'Arjun Kerr', '中低收入戶', NULL, 0, NULL, 0, 0),
+(8, 'Obama', 109213012, 'Lyndsey Berger\r\n', 'Enoch Love', '家庭突發因素', NULL, 0, NULL, 0, 0),
+(9, 'Trump', 109213007, 'Sid Mata', 'Reggie Lopez', '家庭突發因素', NULL, 0, NULL, 0, 0),
+(10, 'Janne', 109213004, 'father2', 'mother2', '中低收入戶', NULL, 0, NULL, 0, 0),
 
 --
 -- 已傾印資料表的索引
