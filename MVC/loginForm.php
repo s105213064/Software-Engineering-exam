@@ -10,4 +10,5 @@ Password : <input type="password" name="pwd"><br />
 <input type="submit">
 </form>
 
+<a href='addaccount.php'>Add Account</A><br>
 <a href='getUserPassword.php'>Tell me passwords</A>

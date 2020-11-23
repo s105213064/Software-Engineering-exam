@@ -50,6 +50,6 @@ $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
     <?php
     echo $status;
     ?>
-    <hr><a href="loginForm.php">logout</a>
+    <hr><a href="loginForm.php">logout</a><br><a href="../applyform.php">add new applicatrion</a>
     </body>
 </html>
